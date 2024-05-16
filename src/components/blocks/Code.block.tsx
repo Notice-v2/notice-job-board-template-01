@@ -1,11 +1,11 @@
 'use client'
 
+import { useIsHovered } from '@/hooks'
+import { ClipboardCheck, CopyIcon } from '@/icons'
 import { Box, IconButton, useClipboard } from '@chakra-ui/react'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.min.css'
 import { useEffect, useRef } from 'react'
-import { useIsHovered } from '../../hooks'
-import { ClipboardCheck, CopyIcon } from '../../icons'
 
 interface Props {
 	block: any
@@ -19,6 +19,37 @@ export function CodeBlock({ block }: Props) {
 	const code = content[0]
 
 	useEffect(() => {
+		hljs.configure({
+			languages: [
+				'js',
+				'ts',
+				'jsx',
+				'tsx',
+				'css',
+				'scss',
+				'html',
+				'shell',
+				'java',
+				'C++',
+				'C#',
+				'Python',
+				'Ruby',
+				'Go',
+				'Swift',
+				'Kotlin',
+				'Rust',
+				'Dart',
+				'PHP',
+				'Perl',
+				'R',
+				'JSON',
+				'Bash',
+				'GraphQL',
+				'PowerShell',
+				'Sass',
+				'SQL',
+			],
+		})
 		hljs.highlightAll()
 	}, [])
 

@@ -4,6 +4,7 @@ import { CodeBlock } from './Code.block'
 import { DividerBlock } from './Divider.block'
 import { HeaderBlock } from './Header.block'
 import { HintBlock } from './Hint.block'
+import { ImageBlock } from './Image.block'
 import { ListItemBlock } from './ListItem.block'
 import { NumberedListBlock } from './NumberedList.block'
 import { ParagraphBlock } from './Paragraph.block'
@@ -11,6 +12,8 @@ import { QuoteBlock } from './Quote.block'
 
 export function renderBlock(block: any) {
 	switch (block.type) {
+		case 'image':
+			return <ImageBlock key={block.id} block={block} />
 		case 'paragraph':
 			return <ParagraphBlock key={block.id} block={block} />
 		case 'heading':

@@ -1,9 +1,3 @@
-import axios from 'axios'
-
-export const EMAIL_API = axios.create({
-	baseURL: 'http://localhost:3014/',
-})
-
 interface ConvertedFileObject {
 	fieldname: string
 	originalname: string

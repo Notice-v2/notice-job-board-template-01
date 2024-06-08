@@ -1,7 +1,7 @@
 'use client'
 
-import { generateEmailTemplate } from '@/tools/email'
-import { convertFileToObject, EMAIL_API } from '@/tools/files'
+import { EMAIL_API, generateEmailTemplate } from '@/tools/email'
+import { convertFileToObject } from '@/tools/files'
 import { validateFormData } from '@/tools/form'
 import {
 	Button,
@@ -74,7 +74,7 @@ export const ApplicationForm = ({ title, projectId }: Props) => {
 				convertedFileObject.originalname
 			)
 
-			await EMAIL_API.post(`/email/user-email`, form, {
+			await EMAIL_API.post(`/user-email`, form, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},

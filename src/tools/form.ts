@@ -37,8 +37,8 @@ const checkForValidation = (key: string, value: string | File | null, onError: (
 export const validateFormData = (formData: IFormData, onError: (key: string) => void) => {
 	for (const [key, value] of Object.entries(formData)) {
 		if (checkForValidation(key, value, onError)) {
-			break // Exit the loop on the first validation error
+			return false
 		}
 	}
-	return
+	return true
 }

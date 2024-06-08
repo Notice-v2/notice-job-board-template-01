@@ -2,7 +2,7 @@ import axios from 'axios'
 import { IFormData } from './form'
 
 export const EMAIL_API = axios.create({
-	baseURL: 'https://api-v2.notice.studio/email/',
+	baseURL: 'https://api-v2.notice.studio/email',
 })
 
 export const generateEmailTemplate = (formData: IFormData, post: string) => {

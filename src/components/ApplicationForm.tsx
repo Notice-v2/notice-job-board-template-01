@@ -57,7 +57,11 @@ export const ApplicationForm = ({ title, projectId }: Props) => {
 	const sendApplication = async () => {
 		const { file } = formData
 
-		validateFormData(formData, setOnError)
+		const isValid = validateFormData(formData, setOnError)
+
+		if (!isValid) {
+			return
+		}
 
 		try {
 			setLoading(true)
@@ -88,10 +92,11 @@ export const ApplicationForm = ({ title, projectId }: Props) => {
 				file: null,
 			})
 			onClose()
-			toast({ title: 'Application sent successfully', status: 'success', position: 'top-right' })
+			toast({ title: 'Application sent successfully.', status: 'success', position: 'top-right' })
 			setLoading(false)
 		} catch (ex) {
 			setLoading(false)
+			toast({ title: 'Failed to send application, Something went wrong.', status: 'error', position: 'top-right' })
 			return null
 		}
 	}

@@ -1,10 +1,12 @@
 'use client'
 
-import { Box, Button, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, HStack, Text, useMediaQuery, VStack } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import { useMemo } from 'react'
 import { NarrowArrowLeftIcon } from '../icons'
+import { ApplicationForm } from './ApplicationForm'
+import { ApplyBanner } from './ApplyBanner'
 import { Navbar } from './Navbar'
 import { SocialShare } from './SocialShare'
 import { PageContent } from './blocks/render-blocks'
@@ -22,6 +24,11 @@ export const SubPageComponents = ({ data }: Props) => {
 		return newArr
 	}
 
+	const [isBigScreen] = useMediaQuery('(min-width: 1350px)', {
+		ssr: true,
+		fallback: false, // return false on the server, and re-evaluate on the client side
+	})
+
 	const filteredContent = useMemo(() => removeFirstElement(data?.content ?? []), [data])
 
 	const homeHref = process.env.NODE_ENV === 'production' ? '/' : `/?target=${data.projectId}`
@@ -31,6 +38,11 @@ export const SubPageComponents = ({ data }: Props) => {
 			<Navbar meta={data?.metadata.elements ?? []} />
 			<Box as="section" mt={{ base: '30px', lg: '60px' }} w="100%" h="100%">
 				<Flex position="relative" maxW="1260px" justify="center" align="flex-start" mx="auto">
+					{isBigScreen && (
+						<VStack position="absolute" left="-1%" p={'1px 4px 4px'}>
+							<ApplyBanner title={data.title} meta={data?.metadata.elements ?? []} projectId={data?.projectId} />
+						</VStack>
+					)}
 					<Flex
 						maxW="700px"
 						margin="auto"
@@ -68,12 +80,9 @@ export const SubPageComponents = ({ data }: Props) => {
 							</Heading>
 						</VStack>
 						<PageContent blocks={filteredContent} />
-						<HStack my="32px" justify="flex-start" align="center" w="100%">
+						<HStack my="32px" justify="space-between" align="center" w="100%">
+							<ApplicationForm title={data.title} projectId={data?.projectId} />
 							<SocialShare />
-							{/* <Button size="sm" onClick={openMail}>
-										{' '}
-										Apply{' '}
-									</Button> */}
 						</HStack>
 					</Flex>
 				</Flex>

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const API = axios.create({
-	baseURL: 'https://api-v2.notice.studio/publications',
+	baseURL: 'http://localhost:3014/publications',
 })
 
 export function extractProjectID(headers: Headers, searchParams?: Record<string, any>) {

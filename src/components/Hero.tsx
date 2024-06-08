@@ -36,7 +36,7 @@ export const Hero = ({ project, pages, accentColor }: Props) => {
 			>
 				{project?.subtitle}
 			</Heading>
-			<Text fontSize="lg" color="gray.500" mb="4">
+			<Text fontSize="lg" color="gray.500" mb="4" textAlign="center">
 				{project?.description}
 			</Text>
 			<TagsGroup tags={tags ?? []} activeTag={selectedTag} accentColor={accentColor} />

@@ -68,9 +68,9 @@ export const SocialShare = ({ marginTop }: Props) => {
 	}
 
 	return (
-		<VStack align="flex-start" justify="center" mb={'8px'} mt={marginTop ?? '8px'} w="100%" spacing={1}>
+		<VStack align="flex-start" justify="center" mb={'8px'} mt={marginTop ?? '8px'} w="fit-content" spacing={1}>
 			<Text color="gray.600" fontSize="xs">
-				SHARE THIS POST
+				SHARE THIS JOB
 			</Text>
 			<HStack spacing={0} justify="center" align="start">
 				<IconButton

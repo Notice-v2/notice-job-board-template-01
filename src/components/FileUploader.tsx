@@ -33,9 +33,14 @@ export const FileUploader = ({ onFileUpload, file, onFileDelete }: Props) => {
 
 		if (e.dataTransfer.files && e.dataTransfer.files[0]) {
 			if (e.dataTransfer.files[0].size > 6291456) {
-				toast({ title: 'File size too big, Must be under 6MB.', status: 'error', position: 'top-right' })
+				toast({
+					title: 'File size too big, Must be under 6MB.',
+					status: 'error',
+					position: 'top-right',
+					isClosable: true,
+				})
 			} else if (!acceptedTypes.includes(e.dataTransfer.files[0].type)) {
-				toast({ title: 'File type not supported.', status: 'error', position: 'top-right' })
+				toast({ title: 'File type not supported.', status: 'error', position: 'top-right', isClosable: true })
 			} else {
 				onFileUpload(e.dataTransfer.files[0])
 			}
@@ -48,9 +53,14 @@ export const FileUploader = ({ onFileUpload, file, onFileDelete }: Props) => {
 
 		if (e.target.files && e.target.files[0]) {
 			if (e.target.files[0].size > 6291456) {
-				toast({ title: 'File size too big, Must be under 6MB.', status: 'error', position: 'top-right' })
+				toast({
+					title: 'File size too big, Must be under 6MB.',
+					status: 'error',
+					position: 'top-right',
+					isClosable: true,
+				})
 			} else if (!acceptedTypes.includes(e.target.files[0].type)) {
-				toast({ title: 'File type not supported.', status: 'error', position: 'top-right' })
+				toast({ title: 'File type not supported.', status: 'error', position: 'top-right', isClosable: true })
 			} else {
 				onFileUpload(e.target.files[0])
 			}

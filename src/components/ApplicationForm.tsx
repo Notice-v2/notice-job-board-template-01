@@ -92,11 +92,16 @@ export const ApplicationForm = ({ title, projectId }: Props) => {
 				file: null,
 			})
 			onClose()
-			toast({ title: 'Application sent successfully.', status: 'success', position: 'top-right' })
+			toast({ title: 'Application sent successfully.', status: 'success', position: 'top-right', isClosable: true })
 			setLoading(false)
 		} catch (ex) {
 			setLoading(false)
-			toast({ title: 'Failed to send application, Something went wrong.', status: 'error', position: 'top-right' })
+			toast({
+				title: 'Failed to send application, Something went wrong.',
+				status: 'error',
+				position: 'top-right',
+				isClosable: true,
+			})
 			return null
 		}
 	}

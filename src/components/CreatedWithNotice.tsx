@@ -3,10 +3,15 @@
 import { Box, Flex } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
+import { NoticeLogo } from '@/icons'
 import { Link } from '@chakra-ui/next-js'
-import { NoticeLogo } from '../icons'
 
-export const CreatedWithNotice = () => {
+interface Props {
+	shouldHide?: boolean
+}
+
+export const CreatedWithNotice = ({ shouldHide }: Props) => {
+	if (shouldHide) return null
 	return (
 		<StyledBox>
 			<Flex gap={2} justify="center" align="center" w="100%" mx={'auto'}>

@@ -75,7 +75,7 @@ export const JobListing = ({ pages, accentColor }: Props) => {
 				w="100%"
 			>
 				{filteredArticles.map((page) => (
-					<JobCard key={page.id} page={page} accentColor={accentColor} />
+					<JobCard key={page._id} page={page} accentColor={accentColor} />
 				))}
 			</Flex>
 		</Box>

@@ -1,6 +1,6 @@
 import { Avatar, VStack } from '@chakra-ui/react'
+import { ApplicationForm } from '@notice-org/renderer-helper'
 import { useMemo } from 'react'
-import { ApplicationForm } from './ApplicationForm'
 
 interface Props {
 	meta: any

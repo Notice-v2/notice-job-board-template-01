@@ -1,9 +1,9 @@
-import { useHorizontalScrollShadow } from '@/hooks'
 import { ArrowLeft, ArrowRight } from '@/icons'
 import { useSelectedTag } from '@/providers/selectedTagProvider'
 import { DEFAULT_COLOR } from '@/utils/theme'
 import { Circle, HStack, Tag, chakra } from '@chakra-ui/react'
 import { css } from '@emotion/react'
+import { useHorizontalScrollShadow } from '@notice-org/renderer-helper'
 import { motion } from 'framer-motion'
 import { useCallback, useMemo, useRef } from 'react'
 

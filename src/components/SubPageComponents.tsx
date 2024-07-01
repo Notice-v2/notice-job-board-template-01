@@ -69,7 +69,9 @@ export const SubPageComponents = ({ data }: Props) => {
 									Published on {formattedDate}
 								</Text>
 							</VStack>
-							<SocialShare />
+							<Box w="fit-content">
+								<SocialShare />
+							</Box>
 						</HStack>
 						<Heading as="h1" fontSize="42px" fontWeight={700} lineHeight={1.2}>
 							{data.title}

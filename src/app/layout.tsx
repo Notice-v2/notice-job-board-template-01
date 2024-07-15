@@ -40,7 +40,7 @@ async function getProjectData() {
 	if (!projectId) return null
 
 	try {
-		const { data } = await API.get(`/projects/47609ad8-52d8-4713-a6e3-1fbd233935b0`)
+		const { data } = await API.get(`/projects/${projectId}`)
 		return data
 	} catch (_) {
 		return null
